@@ -18,9 +18,9 @@ function App() {
 
   const addItem = item => {
 		// add the given item to the cart
-		const newItem = { ...item };
-		newItem.cartId = uuid.v4();
-		setCart( [ ...cart, newItem ] );
+		// const newItem = { ...item, cartId: uuid.v4() };
+		// newItem.cartId = uuid.v4();
+		setCart( [ ...cart, { ...item, cartId: uuid.v4() } ] );
 	};
 
 	return (
