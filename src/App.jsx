@@ -17,9 +17,6 @@ function App() {
   const [cart, setCart] = useState(  []  );
 
   const addItem = item => {
-		// add the given item to the cart
-		// const newItem = { ...item, cartId: uuid.v4() };
-		// newItem.cartId = uuid.v4();
 		setCart( [ ...cart, { ...item, cartId: uuid.v4() } ] );
 	};
 
