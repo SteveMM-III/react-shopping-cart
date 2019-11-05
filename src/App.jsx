@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
+import uuid from 'uuid';
 
 import data from './data';
 
@@ -17,14 +18,16 @@ function App() {
 
   const addItem = item => {
 		// add the given item to the cart
-		setCart( [ ...cart, item ] );
+		const newItem = { ...item };
+		newItem.cartId = uuid.v4();
+		setCart( [ ...cart, newItem ] );
 	};
 
 	return (
 		
 		<div className="App">
 			<ProductContext.Provider value={{ products, addItem }}>
-				<CartContext.Provider value={{ cart }}>
+				<CartContext.Provider value={{ cart, setCart }}>
 					<Navigation cart={ cart } />
 
 					{/* Routes */}

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import uuid from 'uuid';
 
 // Components
 import Item from './ShoppingCartItem';
@@ -18,7 +19,7 @@ const ShoppingCart = () => {
 		<div className="shopping-cart">
 			{
 				cart.map( item => (
-				  <Item key={ item.id } { ...item } />
+				  <Item key={ uuid.v4() } { ...item } />
 			  ))
 			}
 
